@@ -234,7 +234,8 @@ ul.items {
 }
 
 ul.items li {
-  padding: 0.85rem 0;
+  padding: 0.5rem 0;
+  line-height: 1.5;
   border-bottom: 1px solid var(--line);
 }
 
@@ -249,7 +250,7 @@ ol.items.numbered {
 }
 
 ol.items.numbered li {
-  padding: 0.6rem 0 0.6rem 0.3rem;
+  padding: 0.45rem 0 0.45rem 0.3rem;
   border-bottom: 1px solid var(--line);
 }
 
