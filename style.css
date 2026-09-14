@@ -271,7 +271,13 @@ ul.items li:last-child { border-bottom: 0; }
   white-space: nowrap;
 }
 
-.jp { color: var(--muted); font-size: 0.92rem; }
+.jp {
+  color: var(--faint);
+  font-size: 0.92rem;
+}
+
+/* Japanese names in the affiliation sit beside their English equivalent */
+.affiliation .jp { white-space: nowrap; }
 
 /* ---------------- Footer ---------------- */
 
