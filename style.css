@@ -240,6 +240,28 @@ ul.items li {
 
 ul.items li:last-child { border-bottom: 0; }
 
+/* Numbered talk lists run newest first and sit tighter than the teaching rows */
+ol.items.numbered {
+  list-style: decimal;
+  margin: 0;
+  padding-left: 2.1rem;
+  line-height: 1.5;
+}
+
+ol.items.numbered li {
+  padding: 0.6rem 0 0.6rem 0.3rem;
+  border-bottom: 1px solid var(--line);
+}
+
+ol.items.numbered li:last-child { border-bottom: 0; }
+
+ol.items.numbered li::marker {
+  color: var(--faint);
+  font-size: 0.88rem;
+}
+
+ol.items.numbered .talk-where { margin-top: 0.05rem; }
+
 .talk-title { font-weight: 600; }
 
 .talk-where {

@@ -11,11 +11,12 @@ comes from the author; the HTML and CSS around it were written by AI.
 
 | File            | Purpose                                             |
 | --------------- | --------------------------------------------------- |
-| `index.html`    | Home — affiliation, contact, positions and education |
+| `index.html`    | Home — affiliation and contact                       |
+| `cv.html`       | Positions and education                              |
 | `research.html` | Research interests, publications, preprints, thesis  |
 | `teaching.html` | Courses taught                                       |
-| `talks.html`    | Conference, workshop and seminar talks               |
-| `style.css`     | Shared stylesheet for all four pages                 |
+| `talks.html`    | Conference, workshop and seminar talks (numbered)    |
+| `style.css`     | Shared stylesheet for all five pages                 |
 | `.nojekyll`     | Tells GitHub Pages to serve the files as-is          |
 
 Plain HTML and CSS — no build step, no dependencies. Edit a file, commit,
