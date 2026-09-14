@@ -1,0 +1,295 @@
+/* ---------------------------------------------------------------
+   Dingqun Deng — personal homepage
+   Single stylesheet shared by every page.
+   --------------------------------------------------------------- */
+
+:root {
+  --bg:        #fcfcfa;
+  --surface:   #ffffff;
+  --text:      #1a1a1c;
+  --muted:     #64646e;
+  --faint:     #8a8a94;
+  --line:      #e3e2de;
+  --accent:    #1c4f8b;
+  --accent-bg: #eef3fa;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        #15161a;
+    --surface:   #1d1e24;
+    --text:      #e9e9ee;
+    --muted:     #a0a0ac;
+    --faint:     #7c7c88;
+    --line:      #2e2f38;
+    --accent:    #8ab4e8;
+    --accent-bg: #1e2733;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, "Hiragino Sans", "Noto Sans JP",
+               sans-serif;
+  font-size: 16.5px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+
+.wrap {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+}
+
+/* ---------------- Site header + navigation ---------------- */
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 3rem;
+  padding: 2rem 0 0;
+}
+
+.site-title {
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 1rem;
+}
+
+.site-title a { color: var(--text); text-decoration: none; }
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  display: inline-block;
+  padding-bottom: 0.7rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+nav a:hover { color: var(--text); }
+
+nav a[aria-current="page"] {
+  color: var(--text);
+  font-weight: 600;
+  border-bottom-color: var(--accent);
+}
+
+/* ---------------- Page intro ---------------- */
+
+.intro {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.portrait {
+  width: 150px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+}
+
+h1 {
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-size: clamp(1.9rem, 5vw, 2.4rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+  font-weight: 600;
+}
+
+.affiliation {
+  color: var(--muted);
+  font-size: 0.97rem;
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+.affiliation strong {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1.02rem;
+}
+
+.contact { margin: 0; font-size: 0.95rem; }
+
+/* ---------------- Sections ---------------- */
+
+section { margin-bottom: 3.5rem; }
+section:last-of-type { margin-bottom: 0; }
+
+h2 {
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  font-weight: 700;
+  margin: 2rem 0 0.9rem;
+}
+
+p { margin: 0 0 1.1rem; }
+p:last-child { margin-bottom: 0; }
+
+/* ---------------- Positions / education timeline ---------------- */
+
+.timeline { margin: 0; }
+
+.entry {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 0 1.5rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.entry:last-child { border-bottom: 0; }
+
+.entry .when {
+  color: var(--faint);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.15rem;
+}
+
+.entry .what { margin: 0; }
+
+.entry .role { font-weight: 600; }
+
+.entry .note {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.15rem;
+}
+
+/* ---------------- Publication lists ---------------- */
+
+ol.pubs, ul.plain {
+  margin: 0;
+  padding-left: 1.9rem;
+}
+
+ol.pubs li, ul.plain li {
+  margin-bottom: 1.15rem;
+  padding-left: 0.3rem;
+}
+
+ol.pubs li::marker {
+  color: var(--faint);
+  font-size: 0.88rem;
+}
+
+.pub-title { font-weight: 600; }
+
+.venue { color: var(--muted); }
+
+.ids {
+  display: block;
+  font-size: 0.87rem;
+  color: var(--faint);
+  margin-top: 0.15rem;
+}
+
+.ids a { color: var(--muted); }
+
+/* ---------------- Talk / teaching lists ---------------- */
+
+ul.items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.items li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+ul.items li:last-child { border-bottom: 0; }
+
+.talk-title { font-weight: 600; }
+
+.talk-where {
+  display: block;
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-top: 0.1rem;
+}
+
+.course {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr auto;
+  gap: 0 1.25rem;
+  align-items: baseline;
+}
+
+.course .term {
+  color: var(--faint);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.course .role-tag {
+  font-size: 0.75rem;
+  padding: 0.1rem 0.55rem;
+  border-radius: 3px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.jp { color: var(--muted); font-size: 0.92rem; }
+
+/* ---------------- Footer ---------------- */
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--faint);
+  font-size: 0.85rem;
+}
+
+/* ---------------- Narrow screens ---------------- */
+
+@media (max-width: 40rem) {
+  .intro { flex-direction: column; gap: 1.5rem; }
+  .portrait { width: 120px; }
+  .entry { grid-template-columns: 1fr; gap: 0.2rem; }
+  .course { grid-template-columns: 1fr; gap: 0.2rem; }
+  .course .role-tag { justify-self: start; }
+  nav ul { gap: 1.25rem; }
+}
