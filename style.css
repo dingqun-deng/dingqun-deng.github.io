@@ -47,7 +47,7 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
 a:hover { text-decoration-thickness: 2px; }
 
 .wrap {
-  max-width: 52rem;
+  max-width: 64rem;
   margin: 0 auto;
   padding: 0 1.5rem 5rem;
 }
@@ -214,7 +214,16 @@ ol.pubs li::marker {
 
 .pub-title { font-weight: 600; }
 
-.venue { color: var(--muted); }
+.venue {
+  display: block;
+  color: var(--muted);
+  margin-top: 0.1rem;
+}
+
+.journal {
+  font-weight: 600;
+  color: var(--text);
+}
 
 .ids {
   display: block;
@@ -235,7 +244,7 @@ ul.items {
 
 ul.items li {
   padding: 0.5rem 0;
-  line-height: 1.5;
+  line-height: 1.35;
   border-bottom: 1px solid var(--line);
 }
 
@@ -246,7 +255,7 @@ ol.items.numbered {
   list-style: decimal;
   margin: 0;
   padding-left: 2.1rem;
-  line-height: 1.5;
+  line-height: 1.35;
 }
 
 ol.items.numbered li {
