@@ -3,6 +3,10 @@
 Personal academic homepage of Dingqun Deng, served by GitHub Pages at
 <https://dingqun-deng.github.io>.
 
+This site was generated with the assistance of AI, and is updated the same
+way. The content — biography, publication list, teaching record and talks —
+comes from the author; the HTML and CSS around it were written by AI.
+
 ## Files
 
 | File            | Purpose                                             |
@@ -36,10 +40,16 @@ want it, e.g. in the contact line on `index.html`:
 
 ```html
 <p class="contact">
-  Email: <a href="mailto:dingqun.deng@gmail.com">dingqun.deng@gmail.com</a>
+  Email: <span class="email" data-addr="...">...</span>
   &middot; <a href="cv.pdf">CV</a>
 </p>
 ```
+
+**The email address.** It is base64-encoded in `data-addr` and reassembled
+into a `mailto:` link by the script at the bottom of `index.html`, so the
+plain address never appears in the page source. Readers without JavaScript
+see the `[at]` / `[dot]` fallback text instead. To change the address,
+encode the new one and replace both the attribute and the fallback text.
 
 ## Enabling GitHub Pages
 
