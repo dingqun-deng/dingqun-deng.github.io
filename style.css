@@ -276,8 +276,10 @@ ul.items li:last-child { border-bottom: 0; }
   font-size: 0.92rem;
 }
 
-/* Japanese names in the affiliation sit beside their English equivalent */
+/* Japanese names in the affiliation sit beside their English equivalent.
+   Their links stay in the muted tone so the English name leads the line. */
 .affiliation .jp { white-space: nowrap; }
+.affiliation .jp a { color: inherit; }
 
 /* ---------------- Footer ---------------- */
 
