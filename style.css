@@ -1,17 +1,45 @@
+/* ============================================================
+   Personal site — dark theme
+   Palette: Proton-style lifted charcoal ground, hot pink links,
+   green badges, comfortable text brightness.
+   Layout metrics preserved from the original stylesheet.
+   ============================================================ */
 
-/*  */
+:root {
+  --bg:            #201f2b;   /* ground: lifted violet-charcoal */
+  --bg-raised:     #282735;   /* slightly lifted surface */
+  --text:          #e6e4ee;   /* body text: soft near-white */
+  --heading:       #f5f3fa;   /* headings: bright near-white */
+  --muted:         #a3a0b5;   /* secondary text: metadata, nav, labels */
+  --faint:         #817d94;   /* tertiary text: footer, list numbers */
+  --line:          #343246;   /* hairlines and borders */
+  --accent:        #ff79c6;   /* hot pink: links */
+  --accent-strong: #ffa3d6;   /* accent on hover */
+  --accent-dim:    rgba(255, 121, 198, 0.13);  /* translucent accent fill  */
+  --accent-line:   rgba(255, 121, 198, 0.40);  /* translucent accent border */
+  --badge-accent:  #4cc38a;   /* green: page-count badges */
+  --badge-strong:  #7fdcae;   /* badge brighter tone */
+  --badge-dim:     rgba(76, 195, 138, 0.13);
+  --badge-line:    rgba(76, 195, 138, 0.38);
+}
+
 body {
   margin: 0;
   padding: 0;
-  background: #181a1f;       /* Warm dark charcoal */
-  color: #e2e8f0;            /* Soft off-white */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 17px;
   line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-:root {
-  --line-color: #2b2f38;
+/* Selection tinted with the accent */
+::selection {
+  background: var(--accent-dim);
+  color: var(--heading);
 }
 
 .wrap {
@@ -20,7 +48,8 @@ body {
   padding: 2.5rem 1.5rem;
 }
 
-/* Header & Navigation */
+/* ---------- Header & Navigation ---------- */
+
 header nav ul {
   list-style: none;
   padding: 0;
@@ -31,34 +60,47 @@ header nav ul {
 
 header nav a {
   text-decoration: none;
-  color: #e2e8f0;
+  color: var(--muted);
   font-weight: 500;
+  padding-bottom: 0.15rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 header nav a:hover {
-  color: #79c0ff;
+  color: var(--heading);
+  border-bottom-color: var(--accent-line);
 }
 
-/* Links */
+/* ---------- Links ---------- */
+
 a {
-  color: #79c0ff;
+  color: var(--accent);
   text-decoration: underline;
+  text-decoration-color: var(--accent-line);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
 a:hover {
-  text-decoration: none;
+  color: var(--accent-strong);
+  text-decoration-color: var(--accent-strong);
 }
 
-/* Headings */
+/* ---------- Headings (serif, scholarly) ---------- */
+
 h1, h2, h3 {
-  font-family: inherit;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+               "Times New Roman", serif;
   font-weight: bold;
-  color: #f0f6fc;
+  color: var(--heading);
+  letter-spacing: 0.01em;
 }
 
 h2 {
   font-size: 1.3rem;
-  border-bottom: 1px solid var(--line-color);
+  border-bottom: 1px solid var(--line);
   padding-bottom: 0.3rem;
   margin-top: 0;
 }
@@ -67,14 +109,16 @@ section {
   margin-bottom: 2.5rem;
 }
 
-/* Divider Lines */
+/* ---------- Divider Lines ---------- */
+
 hr {
   border: 0;
-  border-top: 1px solid var(--line-color);
+  border-top: 1px solid var(--line);
   margin: 2rem 0;
 }
 
-/* Text Lists & Alignment Classes */
+/* ---------- Text Lists & Alignment Classes ---------- */
+
 ul.clean-list {
   list-style: none;
   padding: 0;
@@ -90,7 +134,7 @@ ul.clean-list {
 .term {
   width: 7rem;
   flex-shrink: 0;
-  color: #909dab;
+  color: var(--muted);
 }
 
 .content {
@@ -100,13 +144,19 @@ ul.clean-list {
 .role {
   width: 8rem;
   text-align: right;
-  color: #909dab;
+  color: var(--muted);
 }
 
-/* Research & Publications */
+/* ---------- Research & Publications ---------- */
+
 ol.numbered-list {
   padding-left: 1.5rem;
   line-height: 1.7;
+}
+
+ol.numbered-list li::marker {
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
 }
 
 .pub-item, .talk-item {
@@ -114,16 +164,35 @@ ol.numbered-list {
 }
 
 .journal-title {
-  color: #f0f6fc;
+  color: var(--heading);
   font-weight: bold;
 }
 
-/* Grey Metadata Styling */
+/* ---------- Grey Metadata Styling ---------- */
+
 .muted, .venue, .ids {
-  color: #909dab;
+  color: var(--muted);
 }
 
-/* Profile Layout */
+/* ---------- Page count badge (green) ---------- */
+
+.page-count {
+  display: inline-block;
+  margin-left: 0.45em;
+  padding: 0.12em 0.65em;
+  border-radius: 999px;
+  background-color: var(--badge-dim);
+  border: 1px solid var(--badge-line);
+  color: var(--badge-strong);
+  font-size: 0.78em;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* ---------- Profile Layout ---------- */
+
 .profile-row {
   display: flex;
   gap: 2rem;
@@ -133,7 +202,8 @@ ol.numbered-list {
 
 .profile-avatar {
   width: 140px;
-  border-radius: 4px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
 }
 
 .profile-name {
@@ -144,6 +214,7 @@ ol.numbered-list {
 
 .profile-title {
   margin: 0 0 1rem 0;
+  color: var(--muted);
 }
 
 .profile-links {
@@ -151,12 +222,24 @@ ol.numbered-list {
   line-height: 1.7;
 }
 
-/* Footer */
+/* ---------- Footer ---------- */
+
 footer {
   margin-top: 2rem;
-  border-top: 1px solid var(--line-color);
+  border-top: 1px solid var(--line);
   padding-top: 1rem;
+  color: var(--faint);
+  font-size: 0.9rem;
 }
+
+/* ---------- Course note ---------- */
+
+.course-ja {
+  margin-left: 1rem;
+  color: var(--muted);
+}
+
+/* ---------- Responsive ---------- */
 
 @media (max-width: 600px) {
   .item-row {
@@ -167,9 +250,8 @@ footer {
     width: auto;
     text-align: left;
   }
-}
-
-.course-ja {
-  margin-left: 1.0rem;
-  color: #909dab;
+  .profile-row {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
 }
