@@ -90,9 +90,21 @@
     </ul>
   </div>
 
-  <footer class="muted">
-    Updated on Nov. 4 2026
+<footer class="muted">
+    Updated on <span id="upd">Nov. 28 2026</span>
   </footer>
+<script>
+fetch("https://api.github.com/repos/dingqun-deng/dingqun-deng.github.io/commits?per_page=1&path=index.html")
+  .then(r => r.json())
+  .then(c => {
+    var p = c[0].commit.committer.date.slice(0, 10).split("-");
+    var m = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "June",
+             "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
+    document.getElementById("upd").textContent =
+      m[+p[1] - 1] + " " + (+p[2]) + " " + p[0];
+  })
+  .catch(() => {});
+</script>
 
 </div>
 </body>
