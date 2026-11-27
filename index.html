@@ -102,6 +102,7 @@ fetch("https://api.github.com/repos/dingqun-deng/dingqun-deng.github.io/commits?
              "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
     document.getElementById("upd").textContent =
       m[+p[1] - 1] + " " + (+p[2]) + " " + p[0];
+    document.getElementById("updfoot").hidden = false;
   })
   .catch(() => {});
 </script>
